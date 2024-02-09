@@ -1,38 +1,39 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.ComponentModel;
 
-Human humans = new Human();
-
-humans.Name = "Evrim";
-
-
-#region Değiskenler
+Hi("Ayşe");
+Hi("Elif");
+Hi("Ahmet");
+Hi();
 
 
-string mesaj = "Merhaba";
-double tutar = 1000000;
-int sayi = 100;
-bool isLogin = false;
 
-Console.WriteLine("Sonuç: " + tutar * 1.18);
+int sonuc = Topla(3,5);
 
-Console.WriteLine(mesaj);
+string[] students = new string[3];
+students[0] = "Engin";
+students[1] = "Ayşe";
+students[2] = "Aleyna";
 
-Console.WriteLine("Kullanıcı Giriş Yaptı Mı: " + isLogin); 
-#endregion
-
-
-public class Human
+for (int i = 0; i < students.Length; i++)
 {
-    [DisplayName("Ad")]
-    public string Name { get; set; }
-    [DisplayName("Soyad")]
-    public string SurName { get; set; }
-
-    [DisplayName("Doğum Tarihi")]
-    public int BirthdayDate { get; set; }
-
-    [DisplayName("Tc Kimlik Numarası")]
-    public long TCNumber { get; set; }
-
+    Console.WriteLine("Öğrenci Adı: " + students[i]);
 }
+
+//foreach (var item in students)
+//{
+//    Console.WriteLine(item);
+//}
+
+static void Hi(string isim = "isimsiz")
+{
+    Console.WriteLine("Merhaba: " + isim);
+}
+
+static int Topla(int sayi1,int sayi2)
+{
+    int sonuc = sayi1 + sayi2;
+    Console.WriteLine(sonuc);
+    return sonuc;
+}
+
