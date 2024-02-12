@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Business.Concrete;
+using Entities.Concrete;
 using System.ComponentModel;
 
 Hi("Ayşe");
@@ -56,6 +58,15 @@ sayi2 = sayi1;
 sayi1 = 30;
 
 //Console.WriteLine(sayi2);
+Person person = new Person();
+person.FirstName = "Evrim";
+person.LastName = "Çalışkan";
+person.NationalIdentity = 31102248786;
+person.DateOfBirthdate = 1998;
+
+PttManager pttManager = new PttManager(new PersonManager());
+pttManager.GiveMask(person);
+
 
 static void Hi(string isim = "isimsiz")
 {

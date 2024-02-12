@@ -1,21 +1,34 @@
-﻿using Entities.Concrete;
+﻿using Business.Abstract;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Concrete
+namespace Business.Concrete;
+
+public class PttManager : ISupplierService
 {
-    public class PttManager
+    private IApplicantService _applicantService;
+    public PttManager(IApplicantService applicantService)
     {
-        public void GiveMask(Person person)
+        _applicantService = applicantService;
+    }
+    public void GiveMask(Person person)
+    {
+        if (_applicantService.CheckPerson(person))
         {
-            PersonManager personManager = new PersonManager();
-            if (personManager.CheckPerson(person))
-            {
-                Console.WriteLine(person.FirstName + "için maske verildi");
-            }
+            Console.WriteLine(person.FirstName + "için maske verildi");
         }
+        else
+        {
+            Console.WriteLine(person.FirstName + "için maske verilemedi");
+        }
+    }
+
+    public void GiveMAsk(Person person)
+    {
+        throw new NotImplementedException();
     }
 }
